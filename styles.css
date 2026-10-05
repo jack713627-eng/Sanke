@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+  --ink: #e8f1e9;
+  --muted: #8a9a91;
+  --panel: #111b18;
+  --panel-light: #17241f;
+  --line: #2b3b34;
+  --green: #b7f397;
+  --green-strong: #69d391;
+  --orange: #ffb870;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #08100e;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell { width: min(94vw, 620px); padding: 28px 0 22px; }
+.game-panel { padding: clamp(22px, 5vw, 38px); background: var(--panel); border: 1px solid var(--line); box-shadow: 0 24px 70px #0008; }
+.game-header, .controls-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.eyebrow { margin: 0 0 8px; color: var(--green-strong); font-size: 11px; font-weight: 800; letter-spacing: .18em; }
+h1 { margin: 0; font-size: clamp(30px, 7vw, 46px); letter-spacing: .02em; line-height: 1; }
+.score-board { display: flex; gap: 18px; text-align: right; }
+.score-board div { display: grid; gap: 3px; }
+.score-board span { color: var(--muted); font-size: 11px; letter-spacing: .1em; }
+.score-board strong { color: var(--green); font: 700 24px/1 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+.game-stage { position: relative; margin-top: 28px; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--line); background: #0b1511; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.game-overlay { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; padding: 24px; text-align: center; background: #0b1511e8; }
+.game-overlay.hidden { display: none; }
+.overlay-kicker { margin: 0 0 10px; color: var(--orange); font: 700 11px/1 ui-monospace, monospace; letter-spacing: .18em; }
+.game-overlay h2 { margin: 0; font-size: clamp(24px, 5vw, 34px); }
+.game-overlay p:not(.overlay-kicker) { margin: 10px 0 22px; color: var(--muted); }
+button { font: inherit; cursor: pointer; }
+.primary-button { border: 0; padding: 12px 19px; color: #102016; background: var(--green); font-weight: 800; }
+.primary-button:hover { background: #d4ffb9; }
+.controls-row { min-height: 66px; border-bottom: 1px solid var(--line); }
+.hint { margin: 0; color: var(--muted); font-size: 12px; }
+kbd { padding: 3px 6px; border: 1px solid var(--line); color: var(--ink); background: var(--panel-light); font: 11px ui-monospace, monospace; }
+.dot { display: inline-block; width: 3px; height: 3px; margin: 0 8px 3px; border-radius: 50%; background: var(--green-strong); }
+.icon-button { width: 34px; height: 34px; border: 1px solid var(--line); color: var(--green); background: transparent; font-size: 14px; }
+.icon-button:hover { border-color: var(--green-strong); background: var(--panel-light); }
+.mobile-controls { display: none; padding-top: 22px; text-align: center; }
+.mobile-controls div { display: flex; justify-content: center; }
+.mobile-controls button { width: 46px; height: 42px; margin: 3px; border: 1px solid var(--line); color: var(--green); background: var(--panel-light); }
+.mobile-controls button:active { background: var(--green-strong); color: #102016; }
+footer { margin-top: 15px; color: #62736a; font-size: 11px; text-align: center; }
+
+@media (max-width: 520px) {
+  .app-shell { width: 100%; padding: 0; }
+  .game-panel { min-height: 100vh; padding: 24px 18px; border: 0; }
+  .mobile-controls { display: block; }
+  footer { display: none; }
+}

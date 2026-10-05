@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>貪吃蛇 | Snake</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel" aria-label="貪吃蛇遊戲">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">ARCADE / 01</p>
+            <h1>貪吃蛇</h1>
+          </div>
+          <div class="score-board" aria-live="polite">
+            <div><span>分數</span><strong id="score">0</strong></div>
+            <div><span>最高</span><strong id="high-score">0</strong></div>
+          </div>
+        </header>
+
+        <div class="game-stage">
+          <canvas id="game-canvas" width="480" height="480" aria-label="貪吃蛇遊戲畫面"></canvas>
+          <div class="game-overlay" id="game-overlay">
+            <p class="overlay-kicker" id="overlay-kicker">READY?</p>
+            <h2 id="overlay-title">準備開始</h2>
+            <p id="overlay-message">使用方向鍵或 WASD 操作</p>
+            <button class="primary-button" id="start-button" type="button">開始遊戲</button>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <p class="hint"><kbd>空白鍵</kbd> 暫停 / 繼續 <span class="dot"></span> <kbd>R</kbd> 重新開始</p>
+          <button class="icon-button" id="pause-button" type="button" aria-label="暫停遊戲" title="暫停遊戲">Ⅱ</button>
+        </div>
+
+        <div class="mobile-controls" aria-label="觸控方向控制">
+          <button type="button" data-direction="up" aria-label="向上">▲</button>
+          <div>
+            <button type="button" data-direction="left" aria-label="向左">◀</button>
+            <button type="button" data-direction="down" aria-label="向下">▼</button>
+            <button type="button" data-direction="right" aria-label="向右">▶</button>
+          </div>
+        </div>
+      </section>
+      <footer>吃到亮點，讓蛇變長。撞到邊界或自己就結束。</footer>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
